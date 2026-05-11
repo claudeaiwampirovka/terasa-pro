@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 // ============================================================
@@ -93,7 +93,7 @@ function buildLines({ length, width, config, margin }) {
 // ============================================================
 const czk = n => new Intl.NumberFormat("cs-CZ", { style: "currency", currency: "CZK", maximumFractionDigits: 0 }).format(n);
 const uid = () => crypto.randomUUID();
-const now = () => new Date().toISOString();
+//const now = () => new Date().toISOString();
 const STATUS_LABELS = { draft: "Koncept", sent: "Odesláno", approved: "Schváleno", archived: "Archiv" };
 const STATUS_COLORS = { draft: "#7a6a5a", sent: "#4a7a9a", approved: "#5a8c5a", archived: "#444" };
 
@@ -313,7 +313,7 @@ export default function App() {
       }));
       setLines(newLines);
     }
-  }, [length, width, config, margin, linesEdited]);
+  }, [length, width, config, margin, linesEdited, activeId]);
 
   const applyPreset = useCallback((p) => {
     setPreset(p);
